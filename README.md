@@ -476,7 +476,7 @@ git add *
 git add main.tf
 git add .gitignore
 git rm .gitignore
-git commit -m"demo of import"
+git commit -m"fine tune readme"
 git push origin main 
 git rm README.md # unstage
 git --help
