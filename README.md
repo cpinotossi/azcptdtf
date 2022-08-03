@@ -37,7 +37,7 @@ startedgega https://registry.terraform.io/providers/hashicorp/azurerm/latest
 
 ## Logging (OPTIONAL)
 
-In case you like to get more detailed logging you can setup the following variables:
+In case you like to get more detailed logging you can setup the following env variables:
 
 ~~~ bash
 # add better debugging
@@ -69,6 +69,8 @@ terraform init # init to load azurerm provider
 tree -a -I '.git*' # check your directory after tf init
 ~~~
 
+Afterwards your directory should look as follow:
+
 ~~~ text
 .
 ├── .terraform
@@ -84,18 +86,27 @@ tree -a -I '.git*' # check your directory after tf init
 └── main.tf
 ~~~
 
+Have a look at the new created terraform state file:
+
 ~~~ bash
-code terraform.tfstate # have a look at the tfstate
+code terraform.tfstate
 ~~~
 
 ## Work with env variables
 
+You can find more details about terraform and env variables here:
+
 ~~~ bash
 startedgega https://www.terraform.io/language/values/variables#environment-variables # have a look at the doc´s
+~~~
+
+Let´s start by creating a first terraform plan:
+
+~~~ bash
 terraform plan -out tfplan0 # do not use ext .tf
 ~~~
 
-Our new resources will be named with the default value "dummy"
+You will receive the following message:
 
 ~~~ text
 Terraform will perform the following actions:
@@ -111,6 +122,10 @@ Terraform will perform the following actions:
     }
 ~~~
 
+> NOTE: Our new resources will be named with the default value "dummy"
+
+We would like to change this. Therefore we are going to define a new env variable:
+
 ~~~ bash
 export TF_VAR_myprefix=$prefix
 echo $TF_VAR_myprefix
@@ -118,7 +133,7 @@ echo $TF_VAR_myprefix
 terraform plan -out tfplan1
 ~~~
 
-Now our new resources will be named with the env variable value:
+Now our new resources will be named with the env variable value based on the terraform plan output:
 
 ~~~ text
 Terraform will perform the following actions:
