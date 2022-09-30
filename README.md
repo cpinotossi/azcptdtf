@@ -461,6 +461,8 @@ provider "azurerm" {
 (source https://www.terraform.io/language/values/variables#variable-definition-precedence)
 
 
+### Links
+[Azure Blog about TF Statefile](https://techcommunity.microsoft.com/t5/azure-architecture-blog/terraform-with-azure-cloud-shell-amp-state-file-in-azure-storage/ba-p/3627967)
 ### git
 
 ~~~ bash
